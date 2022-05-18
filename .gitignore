@@ -474,3 +474,6 @@ composer.lock
 *.scss.map
 
 sqlDB.php
+dashboard/*
+google-api-php-client--PHP7.4/*
+images
