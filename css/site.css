@@ -183,3 +183,32 @@ button, .imgShadow {
 .padded{
 	margin-left: 20px;
 }
+
+.cardSiteComponent{
+	max-width: 1280px;
+    padding: 15px 35px 45px;
+    /* margin: 0 auto; */
+	margin-top: 30px;
+    background-color: #003E58;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.cardMkpImg{
+	border-radius: 20px  20px 0px 0px;
+	width: 399px;
+	height: 200px;
+	object-fit: contain;
+  }
+
+  .banner-mp{
+	object-fit: cover;
+	width: 100%;
+	height: 200px;
+  }
+
+  .fav-navbar {
+	object-fit: cover;
+  width:241px;
+  height:50px;
+}
+ 

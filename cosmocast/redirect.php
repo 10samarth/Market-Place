@@ -46,15 +46,23 @@
                 $mysqli = new mysqli( $Host, $User, $Password, $DBName);
 
                 $sql = "SELECT * FROM tbl_users_auth WHERE email='".$email."'";
+               
                 $result = $mysqli->query($sql);
-
+              
                 if(!empty($result->fetch_assoc())){
                     $sql2 = "UPDATE tbl_users_auth SET google_id='".$gid."' WHERE email='".$email."'";
                 }else{
                     $sql2 = "INSERT INTO tbl_users_auth (name, email, google_id) VALUES ('".$name."', '".$email."', '".$gid."')";
                 }
-                $mysqli->query($sql2);
 
+                $exec = $mysqli->query($sql2);
+                
+                $sql = "SELECT id FROM tbl_users_auth WHERE email='".$email."'";
+                $result = $mysqli->query($sql);
+                while($row =$result->fetch_assoc()) {
+                    $user_id = $row['id'];
+                }
+                $_SESSION["user_id"] = $user_id;
                 echo "<h2>Welcome</h2> <br>";
                 echo "Name : $name <br>";
                 echo "Email : $email <br>";

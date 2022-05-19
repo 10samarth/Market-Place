@@ -21,6 +21,8 @@
          
         <button type="button" class="btn primeBtn padded mt-3" onclick="location.href='/cosmocast/top_visited_pages.php'">Five most visited products</button>
 
+        <button type="button" class="btn primeBtn padded mt-3" onclick="location.href='/cosmocast/top_rated_products.php'">Top rated products</button>
+
     </div>
     <div class="row mt-5">
         <div class="col-sm-4">

@@ -1,8 +1,7 @@
 <?php session_start(); ?>
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
   <div class="container-fluid">
-    <a  class="fav" href="/cosmocast/#Home"><img src="../images/fav-b-transp.png"></a>
-    <a class="navbar-brand" href="/cosmocast/#Home">Cosmocast</a>
+    <a  class="fav" href="/market-place/marketplace.php"><img class="fav-navbar" src="../images/mplt.png"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -10,26 +9,25 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                <a class="nav-link" href="/cosmocast/#Home">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="/market-place/marketplace.php">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                <a class="nav-link" href="/cosmocast/#About">About</a>
+
+                <li class="nav-item active">
+                  <a class="nav-link" href="/cosmocast/index.php">Cosmocast <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                <a class="nav-link" href="/cosmocast/service_homepage.php">Services</a>
+
+                <li class="nav-item active">
+                  <a class="nav-link" href="https://koushikp25.com/">Spartan travel Agency <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                <a class="nav-link" href="/cosmocast/#News">News</a>
+
+                <li class="nav-item active">
+                  <a class="nav-link" href="https://danielsjsu.com/company/">Ecode <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                <a class="nav-link" href="/cosmocast/#Contacts">Contacts</a>
+
+                <li class="nav-item active">
+                  <a class="nav-link" href="http://justopensourceit.com/">Justopensourceit <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                <a class="nav-link" href="/cosmocast/userForm.php">User</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="/market-place/marketplace.php">Market Place</a>
-                </li>
+                
             </ul>
             <?php
               if((isset($_SESSION['UserName']) && isset($_SESSION['UserEmail']))==FALSE){
