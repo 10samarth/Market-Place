@@ -1,14 +1,6 @@
 <?php
 
     extract($_POST);
-    
-    print_r($_POST);
-    echo $productName;
-    echo $product_company;
-    echo $ratings;
-    echo $user_id; 
-    echo $remark;
-
     include '../sqlDB.php';
 
     echo $Host;

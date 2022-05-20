@@ -18,8 +18,8 @@
  
       <div class="container sectionSeperator mt-3">
       <?php include "../cosmocast/curl.php"; 
-         $op1 = get_top_rated_page("https://10samarth.com/cosmocast/read_curl_top.php");
-         $op2 = get_top_rated_page("https://10samarth.com/cosmocast/del_curl.php");
+         $op1 = get_top_rated_page("http://localhost:8010/cosmocast/read_curl_top.php");
+         $op2 = get_top_rated_page("http://localhost:8010/cosmocast/del_curl.php");
          // fetchContacts();
 
          echo $op1;
@@ -30,7 +30,7 @@
    </body>
    <script>
       $(document).ready( function () {
-         $('#table_id_cp').DataTable({
+         $('#table_id').DataTable({
             order: [[2, 'desc']],
          });
       } );

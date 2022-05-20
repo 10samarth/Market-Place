@@ -63,6 +63,10 @@ Our RDA structure met or exceeded the strict standards for placement repeatabili
             </div>
         </div>
     </section>
+    <?php 
+    $productName = 'product10';
+    include('../Components/ratings.php');
+    ?>
 </body>
 
 </html>

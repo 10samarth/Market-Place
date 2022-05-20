@@ -35,7 +35,7 @@
  if ($length == 0) {
      echo "No results found";
  } else {
-     echo "<table class=\"contactsTbl\">";
+     echo "<table class=\"contactsTbl mt-3\">";
 
      echo '<th style="width:60%">Review</th>';
      echo "<th>Ratings</th>";

@@ -1,7 +1,14 @@
-<?php session_start(); ?>
+<?php 
+require_once "../cosmocast/cookie.php";
+ if((isset($_COOKIE['UserName']) && isset($_COOKIE['UserEmail']))==FALSE || $_COOKIE["UserName"] ==  "<i>Login to comment</i>"){
+  $_COOKIE["UserName"] = "<i>Login to comment</i>";
+  $_COOKIE["UserEmail"] = "<i>Login to comment</i>";
+  $_COOKIE["user_id"] = 0;
+}
+?>
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
   <div class="container-fluid">
-    <a  class="fav" href="/market-place/marketplace.php"><img class="fav-navbar" src="../images/mplt.png"></a>
+    <a  class="fav" href="/market-place/marketplace.php"><img class="fav-navbar" src="../../images/mplt.png"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -30,10 +37,10 @@
                 
             </ul>
             <?php
-              if((isset($_SESSION['UserName']) && isset($_SESSION['UserEmail']))==FALSE){
-                echo '<button type="button" class="btn primeBtn navbar-btn login-btn"  onclick="location.href=\'/cosmocast/redirect.php\'">Sign in</button>';
+              if((isset($_COOKIE['UserName']) && isset($_COOKIE['UserEmail']))==FALSE || $_COOKIE["UserName"] ==  "<i>Login to comment</i>"){
+                echo '<button type="button" class="btn primeBtn navbar-btn login-btn"  onclick="location.href=\'/redirect.php\'">Sign in</button>';
               }else{
-                echo '<a>Hi, '.$_SESSION["UserName"].' </a>';
+                echo '<a>Hi, '.$_COOKIE["UserName"].' </a>';
                 echo "<a class =\"p-2\" href='/cosmocast/cls.php'> Logout</a>";
               }
             ?>

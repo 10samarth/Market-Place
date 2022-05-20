@@ -62,6 +62,10 @@ For the top stages of heavy and small launchers, we also provide Roll and Attitu
             </div>
         </div>
     </section>
+    <?php 
+    $productName = 'product9';
+    include('../Components/ratings.php');
+    ?>
 </body>
 
 </html>

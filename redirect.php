@@ -1,3 +1,18 @@
+<?php 
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+
+function set_login_cookie($name, $email, $user_id) {
+    if (!isset($_COOKIE['UserName']) and !isset($_COOKIE['UserEmail'])) { 
+        setcookie('UserName', $name, time() + (86400 * 365), '/');
+
+        setcookie('UserEmail', $email, time() + (86400 * 365), '/');
+
+        setcookie('user_id',  $user_id, time() + (86400 * 365), '/');
+    }
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,11 +29,11 @@
     <div class="wrapper">
         <div class="form-signin">
             <?php
-            session_start();
-            require_once '../google-api-php-client--PHP7.4/vendor/autoload.php';            
-            include 'sqlDB.php';
             
-            if((isset($_SESSION['UserName']) && isset($_SESSION['UserEmail']))==FALSE){
+            require_once 'google-api-php-client--PHP7.4/vendor/autoload.php';            
+            include 'cosmocast/sqlDB.php';
+            
+            if((isset($_COOKIE['UserName']) && isset($_COOKIE['UserEmail']))==FALSE || $_COOKIE["UserName"] ==  "<i>Login to comment</i>"){
                 // create Client Request to access Google API
                 $client = new Google_Client();
                 $client->setClientId($clientID);
@@ -38,15 +53,8 @@
                 $email =  $google_account_info->email;
                 $name =  $google_account_info->name;
                 $gid =  $google_account_info->id;
-
-                $_SESSION["UserName"] = $name;
-                $_SESSION["UserEmail"] = $email;
-                $_SESSION["gid"] = $gid;
-
                 $mysqli = new mysqli( $Host, $User, $Password, $DBName);
-
-                $sql = "SELECT * FROM tbl_users_auth WHERE email='".$email."'";
-               
+                $sql = "SELECT * FROM tbl_users_auth WHERE email='".$email."'";          
                 $result = $mysqli->query($sql);
               
                 if(!empty($result->fetch_assoc())){
@@ -62,11 +70,11 @@
                 while($row =$result->fetch_assoc()) {
                     $user_id = $row['id'];
                 }
-                $_SESSION["user_id"] = $user_id;
+
+                set_login_cookie($name, $email, $user_id);
                 echo "<h2>Welcome</h2> <br>";
                 echo "Name : $name <br>";
                 echo "Email : $email <br>";
-                echo "GId : $gid";
 
                 // now you can use this profile info to create account in your website and make user logged in.
                 } else {
@@ -77,14 +85,12 @@
                 }
             } else {
                 echo "<h2>Welcome Back</h2> <br>";
-                echo 'Name : '.$_SESSION["UserName"].' <br>';
-                echo 'Email : '.$_SESSION["UserEmail"];
-            }
-
-            
+                echo 'Name : '.$_COOKIE["UserName"].' <br>';
+                echo 'Email : '.$_COOKIE["UserEmail"];
+            }            
             ?>
             <hr style="border: 1px solid; border-radius: 1px;">
-            <a class="btn btn-lg btn-block loginbtn mt-3" href='/cosmocast/index.php'> Go to Home</a>
+            <a class="btn btn-lg btn-block loginbtn mt-3" href='/market-place/marketplace.php'> Go to Home</a>
         </div>
         
     </div>

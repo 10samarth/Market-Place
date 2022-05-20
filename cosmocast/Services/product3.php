@@ -60,6 +60,10 @@ update_pages_cookie('product3.php');
             </div>
         </div>
     </section>
+    <?php 
+    $productName = 'product3';
+    include('../Components/ratings.php');
+    ?>
 </body>
 
 </html>

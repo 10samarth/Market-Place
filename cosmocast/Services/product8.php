@@ -61,6 +61,10 @@ The top level propulsion requirements for the bulk of our satellite customers ar
             </div>
         </div>
     </section>
+    <?php 
+    $productName = 'product8';
+    include('../Components/ratings.php');
+    ?>
 </body>
 
 </html>

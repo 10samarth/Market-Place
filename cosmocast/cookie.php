@@ -3,6 +3,31 @@ header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 
+function set_login_cookie($name, $email, $user_id) {
+    if (!isset($_COOKIE['UserName']) and !isset($_COOKIE['UserEmail'])) { 
+
+        echo $_SERVER['HTTP_HOST'];
+
+        setcookie('UserName', $name, time() + (86400 * 365), '/');
+        $_COOKIE['UserName'] = $name;
+        setcookie('UserEmail', $email, time() + (86400 * 365), '/');
+        $_COOKIE['UserEmail'] = $email;
+        setcookie('user_id',  $user_id, time() + (86400 * 365), '/');
+        $_COOKIE['user_id'] = $user_id;
+
+        setcookie('sammy', 1, time() + (86400 * 365), '/');
+
+        echo "<h1>login cookie set!/////</h1>";
+        echo $_COOKIE['UserName'];
+        echo $_COOKIE['user_id'];
+        echo $_COOKIE['UserEmail'];
+        echo $_COOKIE['sammy'];
+
+        var_dump($_COOKIE);
+        
+    }
+}
+
 function set_pages_cookie($pname) {
     if (!isset($_COOKIE['top_pages']) and !isset($_COOKIE['recent_pages'])) {
         $top_pages = array();

@@ -62,6 +62,10 @@ The PPE was developed at the Jet Propulsion Laboratory as part of the now-defunc
             </div>
         </div>
     </section>
+    <?php 
+    $productName = 'product4';
+    include('../Components/ratings.php');
+    ?>
 </body>
 
 </html>

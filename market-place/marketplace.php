@@ -9,7 +9,10 @@
       <link href="../css/site.css" rel="stylesheet">
    </head>
    <body>
-      <?php include "navbar.php"; ?>
+      <?php include "navbar.php"; 
+
+      
+      ?>
       <section class="container sectionSeperator mt-5">        
             <section class="container cardSiteComponent card">
             <div class="row mt-5">
@@ -24,7 +27,7 @@
             <div class="col-6">
             <img class="card-img-top banner-mp" src="/images/mplt.png" alt="Card image cap">
             </div>
-</div>
+            </div>
             </section>
 
             <div class="col-12 text-center mt-5">
@@ -42,11 +45,17 @@
                </div>
                <div class="col">
                   <div class="card ctheme imgShadow" style="width: 25rem;">
-                     <img class="card-img-top cardMkpImg " src="/images/sky.jpeg" alt="Card image cap">
+                     <img class="card-img-top cardMkpImg banner-mp" src="/images/stat.png" alt="Card image cap">
                      <div class="card-body">
                         <h5 class="card-title">Spartan travel Agency</h5>
                         <p class="card-text">One stop travel solution</p>
-                        <a href="https://koushikp25.com/" class="btn primeBtn">Visit</a>
+                         <?php
+                           if((isset($_COOKIE['UserName']) && isset($_COOKIE['UserEmail']))==FALSE || $_COOKIE["UserName"] ==  "<i>Login to comment</i>"){
+                              echo '<a href="https://koushikp25.com/" class="btn primeBtn">Visit</a>';
+                           }else{
+                              echo '<a href="https://koushikp25.com/?userId='.$_COOKIE["user_id"].'&userName='.$_COOKIE["UserName"].'" class="btn primeBtn">Visit</a>';
+                           }
+                           ?>
                      </div>
                   </div>
                </div>
@@ -54,21 +63,33 @@
             <div class="row mt-5">
                <div class="col">
                   <div class="card ctheme imgShadow" style="width: 25rem;">
-                     <img class="card-img-top cardMkpImg " src="/images/sar.jpeg" alt="Card image cap">
+                     <img class="card-img-top cardMkpImg banner-mp" src="/images/ecodet.png" alt="Card image cap">
                      <div class="card-body">
                         <h5 class="card-title">Ecode</h5>
                         <p class="card-text">Products and services</p>
-                        <a href="https://danielsjsu.com/company/" class="btn primeBtn">Visit</a>
+                        <?php
+                           if((isset($_COOKIE['UserName']) && isset($_COOKIE['UserEmail']))==FALSE || $_COOKIE["UserName"] ==  "<i>Login to comment</i>"){
+                              echo '<a href="https://danielsjsu.com/company/" class="btn primeBtn">Visit</a>';
+                           }else{
+                              echo '<a href="https://danielsjsu.com/company/?userId='.$_COOKIE["user_id"].'&userName='.$_COOKIE["UserName"].'" class="btn primeBtn">Visit</a>';
+                           }
+                           ?>
                      </div>
                   </div>
                </div>
                <div class="col">
                   <div class="card ctheme imgShadow" style="width: 25rem;">
-                     <img class="card-img-top cardMkpImg " src="/images/sky.jpeg" alt="Card image cap">
+                     <img class="card-img-top cardMkpImg banner-mp" src="/images/josit.png" alt="Card image cap">
                      <div class="card-body">
                         <h5 class="card-title">Justopensourceit</h5>
-                        <p class="card-text">Get the best open source media, software and almost everything else here.</p>
-                        <a href="http://justopensourceit.com/" class="btn primeBtn">Visit</a>
+                        <p class="card-text">Get the best open source here.</p>
+                        <?php
+                           if((isset($_COOKIE['UserName']) && isset($_COOKIE['UserEmail']))==FALSE || $_COOKIE["UserName"] ==  "<i>Login to comment</i>"){
+                              echo '<a href="http://justopensourceit.com/" class="btn primeBtn">Visit</a>';
+                           }else{
+                              echo '<a href="http://justopensourceit.com/?userId='.$_COOKIE["user_id"].'&userName='.$_COOKIE["UserName"].'" class="btn primeBtn">Visit</a>';
+                           }
+                           ?>
                      </div>
                   </div>
                </div>
