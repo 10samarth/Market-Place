@@ -8,6 +8,7 @@
  - Tracking of where the user is visiting
  - Interactive UI
 
+#### YouTube video link : https://www.youtube.com/watch?v=Xpat8CbeB-E
 
 The online marketplace contains web sites from different domain of members' companies, and it provides the following functions:
 
